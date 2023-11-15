@@ -1,0 +1,20 @@
+name: Jan Debricked scan
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  vulnerabilities-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - uses: actions/checkout@v3
+      - uses: debricked/actions/resolve-non-docker@v3
+      - uses: debricked/actions/scan-non-docker@v3
+        env:
+           DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
+
+
+          
+        
